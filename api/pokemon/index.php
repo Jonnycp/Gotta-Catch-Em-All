@@ -1,5 +1,5 @@
 <?php
-require("../headers.php")
+require("../headers.php");
 putHeaders("GET"); 
 if($_SERVER['REQUEST_METHOD']=="GET"){
     
