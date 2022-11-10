@@ -1,0 +1,13 @@
+div.container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+}
+main {
+    margin-left: 235px;
+    margin-right: 235px;
+    margin-top: 75px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+}
