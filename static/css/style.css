@@ -1,3 +1,7 @@
+@import url("variabiles.css");
+@import url("reset.css");
+
+
 div.container {
     width: 100%;
     height: 100vh;
