@@ -1,18 +1,19 @@
 <?php
-$array=$_GET;
 function verificaEsistenzaParametri($array){
-    //pensavo di fare un for e con una variabile di incremento se ci fossero stati almeno due valori trasformavo la variabile booleana in true 
-    if(isset()){
-        $bool=true;
-    }else{
-        $bool=false;
+    $n=0;
+    foreach ($array as $parametro) { 
+        $parametri=['HP','ATK','DEF','SP_ATK','SP-DEF','SPEED'];
+        if(in_array($parametro,$parametri) ){
+            $n+=1;
+        }
     }
 
-}
-if($bool==true){
-verificaEsistenzaParametri();
+if(n<2){
+    http_response_code(422);//Unprocessable Entity
+    echo json_encode(array("message" => "Unprocessable Entity"));
+    return false;
 }else{
-    http_response_code(405);//metodo non permesso
-    echo json_encode(array("message" => "Metodo non abilitato"));
+    return true;
+}
 }
 ?>
