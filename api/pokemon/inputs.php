@@ -12,7 +12,7 @@ function verificaEsistenzaParametri($array){
         }
     }
 
-if(n<2){
+if($n<2){
     http_response_code(422);//Unprocessable Entity
     echo json_encode(array("message" => "Parametri non sufficienti"));
     return false;
