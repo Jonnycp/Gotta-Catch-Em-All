@@ -5,13 +5,13 @@
 div.container {
     width: 100%;
     height: 100vh;
-    background-color: var(--background);
+    background: var(--background);
 }
 main {
-    margin-left: 235px;
-    margin-right: 235px;
-    margin-top: 75px;
-    margin-bottom: 100px;
+    padding-top: 75px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
 }
