@@ -39,10 +39,31 @@ function ricercaMaxMin($pokemon){
     }
 
     $minmax=["hp"=>[],"atk"=>[],"defense"=>[],"sp_atk"=>[],"sp_def"=>[],"speed"=>[]];
-    $minhp=min($minmax["hp"]);
-
+    
     for ($i=0; $i < count($pokemon); $i++) {
-       //array push
+        $minhp=min($minmax["hp"]);
+        $maxhp=max($minmax["hp"]);
+        $pokemon[$i][$hp]=[$minhp,$maxhp];
+        
+        $minatk=min($minmax["atk"]);
+        $maxatk=max($minmax["atk"]);
+        $pokemon[$i][$atk]=[$minatk,$maxatk];
+       
+        $mindefense=min($minmax["defense"]);
+        $maxdefense=max($minmax["defense"]);
+        $pokemon[$i][$defense]=[$mindefe3nse,$maxdefense];
+
+        $minspatk=min($minmax["spatk"]);
+        $maxspatk=max($minmax["spatk"]);
+        $pokemon[$i][$spatk]=[$minspatk,$maxspatk];
+
+        $minspdef=min($minmax["spdef"]);
+        $maxspdef=max($minmax["spdef"]);
+        $pokemon[$i][$spdef]=[$minspdef,$maxspdef];
+
+        $minspeed=min($minmax["speed"]);
+        $maxspeed=max($minmax["speed"]);
+        $pokemon[$i][$speed]=[$minspeed,$maxspeed];
     }
     
     //array di due numeri per max e min 
