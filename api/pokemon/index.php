@@ -8,7 +8,9 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         //prossime cose.... soon
         $valori=controlloInput($_GET);
         $pokemons=readCSV();
+        $pokemons=normalizerCSV($pokemons);
         echo json_encode($pokemons);
+
     }
 }else{
     http_response_code(405);//metodo non permesso
