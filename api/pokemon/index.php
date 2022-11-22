@@ -10,8 +10,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         $pokemons=readCSV();
         $pokemonNormalizzati=normalizerCSV($pokemons);
         $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
-        echo json_encode($distanzePokemon);
-
+        echo json_encode(estrazione(5,$pokemons,$distanzePokemon));
 
     }
 }else{

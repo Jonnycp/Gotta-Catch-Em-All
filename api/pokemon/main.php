@@ -41,7 +41,7 @@ function ordinamento($pokDist){
             $scambiato = false;
             for( $i = 0, $c = count( $pokDist ) - 1; $i < $c; $i++ )
             {
-                if( $pokDist[$i] > $pokDist[$i + 1] )
+                if( $pokDist[$i][1] > $pokDist[$i + 1][1] )
         {
                     $temp = $pokDist[$i + 1];
                     $pokDist[$i + 1] = $pokDist[$i];
@@ -54,8 +54,13 @@ function ordinamento($pokDist){
 return $pokDist;
 } 
 
-function estrazione($k){
-
+function estrazione($k,$pokemon,$distanzePokemon){
+$distanzePokemon=ordinamento($distanzePokemon);
+$kpokemon=[];
+for ($i=0; $i < $k; $i++) { 
+   array_push($kpokemon,getPokemonById($distanzePokemon[$i][0],$pokemon));
+}
+return $kpokemon;
 }
 
 
