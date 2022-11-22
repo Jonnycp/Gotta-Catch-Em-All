@@ -34,3 +34,9 @@ form {
     row-gap: 25px;
 
 }
+
+form .formGroup input.error{
+   color: var( --error);
+   border-color: var( --error);
+
+}
