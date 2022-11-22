@@ -2,14 +2,16 @@
 require("../headers.php");
 require("./inputs.php");
 require("./files.php");
+require("./main.php");
 putHeaders("GET"); 
 if($_SERVER['REQUEST_METHOD']=="GET"){
     if(verificaEsistenzaParametri($_GET)){
-        //prossime cose.... soon
         $valori=controlloInput($_GET);
         $pokemons=readCSV();
-        $pokemons=normalizerCSV($pokemons);
-        echo json_encode($pokemons);
+        $pokemonNormalizzati=normalizerCSV($pokemons);
+        $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
+        echo json_encode($distanzePokemon);
+
 
     }
 }else{

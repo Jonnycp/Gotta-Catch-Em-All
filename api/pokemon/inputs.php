@@ -36,7 +36,7 @@ function controlloInput($array){
             $min = $maxmin[strtoupper($parametro)][0];
             $max = $maxmin[strtoupper($parametro)][1];
             if($valore>= $min && $valore <= $max){
-                $inputs[$parametro]=$valore;  //se esiste la chiave parametro la sostituisco con valore senno te la crea
+                $inputs[strtolower($parametro)]=$valore;  //se esiste la chiave parametro la sostituisco con valore senno te la crea
             }else{
                 http_response_code(422);
                 echo json_encode(array("message" => "$parametro deve essere compreso tra $min e $max"));   
