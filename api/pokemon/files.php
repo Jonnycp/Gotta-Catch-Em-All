@@ -24,12 +24,12 @@ function readCSV(){
 function normalizerCSV($pokemon){
     $minmax=ricercaMinMax($pokemon);
     for ($i=0; $i < count($pokemon); $i++) { 
-    normalizer($pokemon[$i]["hp"],$minmax["hp"][0],$minmax["hp"][1]);
-    normalizer($pokemon[$i]["atk"],$minmax["atk"][0],$minmax["atk"][1]);
-    normalizer($pokemon[$i]["defense"],$minmax["defense"][0],$minmax["defense"][1]);
-    normalizer($pokemon[$i]["sp_attack"],$minmax["sp_attack"][0],$minmax["sp_attack"][1]);
-    normalizer($pokemon[$i]["sp_def"],$minmax["sp_def"][0],$minmax["sp_def"][1]);
-    normalizer($pokemon[$i]["speed"],$minmax["speed"][0],$minmax["speed"][1]);
+    $pokemon[$i]["hp"]=normalizer($pokemon[$i]["hp"],$minmax["hp"][0],$minmax["hp"][1]);
+    $pokemon[$i]["atk"]=normalizer($pokemon[$i]["atk"],$minmax["atk"][0],$minmax["atk"][1]);
+    $pokemon[$i]["defense"]=normalizer($pokemon[$i]["defense"],$minmax["defense"][0],$minmax["defense"][1]);
+    $pokemon[$i]["sp_attack"]=normalizer($pokemon[$i]["sp_attack"],$minmax["sp_attack"][0],$minmax["sp_attack"][1]);
+    $pokemon[$i]["sp_def"]=normalizer($pokemon[$i]["sp_def"],$minmax["sp_def"][0],$minmax["sp_def"][1]);
+    $pokemon[$i]["speed"]=normalizer($pokemon[$i]["speed"],$minmax["speed"][0],$minmax["speed"][1]);
     }
     //array che contine pokemon normalizzato con un ciclo for
     
@@ -78,6 +78,7 @@ function ricercaMaxMin($pokemon){
 }
 
 function normalizer($min,$max,$numero){
+    $numero=[$numero-[min($numero)]]/[max($numero)-min($numero)];
     //applica la formula matematica, prende in input un numero (x)
     //normalizer chiamta da normalizercsv
     
