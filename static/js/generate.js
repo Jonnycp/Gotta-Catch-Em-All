@@ -36,12 +36,12 @@ let inputs=[
      },
      {
         label: "Punti Attacco Speciale (Sp.Atk)",
-        id: "sp-atk",
+        id: "sp_atk",
         range: [0, 300]
      },
      {
         label: "Punti Difesa Speciale (Sp.Defense)",
-        id: "sp-def",
+        id: "sp_def",
         range: [0, 300]
      },
      {

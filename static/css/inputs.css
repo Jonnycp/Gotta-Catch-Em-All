@@ -40,3 +40,7 @@ form .formGroup input.error{
    border-color: var( --error);
 
 }
+
+form .formGroup input:focus{
+    outline: 0;
+}

@@ -1,39 +1,34 @@
 let button= document.querySelector("button[type=submit]");
-let campo= document.querySelector("form")
+button.disabled=true;
+let valori= {};
+let input= document.querySelectorAll("input");
 
-
- function requestPokemon(e) {
-    e.preventDefault();
-    let input =document.querySelectorAll("input")
-   // controlloInputs(input)
-    let valori= [];
-    let vuoto=0;
-   
-    for(let i=0; i<input.length;i++){
-    //    input[i].addEventListener("keyup", ()=> controlloInputs(input))
-    
-        valori.push(input[i].value)
-        if(valori[i]===""){
-          valori[i]=0;
-          vuoto=vuoto+1;
+input.forEach((elemento, i) => {
+    elemento.addEventListener("keyup", () => {
+        if(controlloInput(elemento, inputs[i])){
+            elemento.classList.remove("error");
+            valori[elemento.id]=elemento.value;
           
+        }else{
+            elemento.classList.add("error");
+            delete valori[elemento.id];
         }
-    }
+        if(elemento.value===""){
+            elemento.classList.remove("error");
+            delete valori[elemento.id];
+        }
 
-    if(vuoto<=valori.length-2){
-       fetch(`/api/pokemon?hp=${valori[0]}&atk=${valori[1]}&def=${valori[2]}&sp_atk=${valori[3]}&sp_def=${valori[4]}&speed=${valori[5]}`)
-       .then(r=>r.json())
-       .then(pokemons=>renderCards(pokemons))
-       .catch(e=>console.log("gg"))
-    }
+        if(Object.keys(valori).length>=2){
+            button.disabled=false;
+        }else{
+            button.disabled=true;
+        }
+        console.log(valori);
+    })
+})
 
-   // console.log(valori)
-    
-  
-}
 
 function controlloInput(input, limits){
-    console.log(input)
     if(input.value!=""){
         if(!isNaN(input.value)){
             if(input.value>=limits.range[0]&& input.value <= limits.range[1]){
@@ -46,23 +41,18 @@ function controlloInput(input, limits){
 
 }
 
-function controlloInputs(inputsDom){
-    for(i=0; i<inputsDom.length;i++){
-        if(controlloInput(inputsDom[i], inputs[i])==false){
-            inputsDom[i].classList.add("error");
-            button.setAttribute("disabled", true)
-    
-        }else{
-            button.removeAttribute("disabled")
-            inputsDom[i].classList.remove("error");
 
-        }
+
+function requestPokemon(e){
+    e.preventDefault();
+    if(Object.keys(valori).length>=2){
+        fetch("/api/pokemon?"+new URLSearchParams(valori))
+        .then(r=>r.json())
+        .then(r=>generateCard(r))
+        .catch(e =>console.error(e))
     }
 }
 
-
-
-
  
- form.addEventListener("submit", requestPokemon)
+form.addEventListener("submit", requestPokemon)
 
