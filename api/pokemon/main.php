@@ -5,7 +5,6 @@ function getPokemonById($id,$pokemon){
         if($pokemon[$i]["id"]==$id){
             return $pokemon[$i];//cozzalo by dalila
         }        
-        //se l'id di pokemon di i è = a quello dell'utente (variabile id) allora restituisco pokemon di i oppure return il pokemon di i
     }
     
 }
@@ -13,14 +12,12 @@ function getPokemonById($id,$pokemon){
 
 function distEuclideaGenerica($utente,$pokemon){
 $somma=0;
-
-    foreach ($pokemon as $key => $value) {
+    foreach ($pokemon as $key => $pokemonValue) {
         if($key=="hp"||$key=="atk"||$key=="def"||$key=="sp_def"||$key=="sp_atk"||$key=="speed"){
+            $utenteValue=isset(utente[$key])?utente[$key]:0; 
             $somma+=pow($utente[$key]-$value,2);
-        }
-        
+        } 
     }
-    
 return sqrt($somma);
 }
 
@@ -38,16 +35,14 @@ function distanzePokemon($pokemon,$utente){
 function ordinamento($pokDist){
     do
     {
-            $scambiato = false;
-            for( $i = 0, $c = count( $pokDist ) - 1; $i < $c; $i++ )
-            {
-                if( $pokDist[$i][1] > $pokDist[$i + 1][1] )
-        {
+        $scambiato = false;
+            for( $i = 0, $c = count( $pokDist ) - 1; $i < $c; $i++ ){
+                if( $pokDist[$i][1] > $pokDist[$i + 1][1] ){
                     $temp = $pokDist[$i + 1];
                     $pokDist[$i + 1] = $pokDist[$i];
                     $pokDist[$i] = $temp;
                     $scambiato = true;
-        }
+                }
             }
     }
     while($scambiato);

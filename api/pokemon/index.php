@@ -11,10 +11,9 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         $pokemonNormalizzati=normalizerCSV($pokemons);
         $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
         echo json_encode(estrazione(5,$pokemons,$distanzePokemon));
-
     }
 }else{
-    http_response_code(405);//metodo non permesso
+    http_response_code(405);
     echo json_encode(array("message" => "Metodo non abilitato"));
 }
 ?>

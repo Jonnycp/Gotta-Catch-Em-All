@@ -23,31 +23,26 @@ if($n<2){
 
 function controlloInput($array){
     $inputs=[];
-    //array associativo max e min 
     $maxmin=array("HP"=>[0, 300],"ATK"=>[0, 300],"DEF"=>[0, 300],"SP_ATK"=>[0, 300],"SP_DEF"=>[0, 300],"SPEED"=>[0, 300]);
-    
     foreach ($array as $parametro=> $valore) { 
-        $valore = trim($valore); //Toglie gli spazi aggiuntivi davanti e dietro
-        $valore = stripslashes($valore); //Toglie tutti i caratteri esadecimali
-        $valore = htmlspecialchars($valore); //Toglie i caratteri html speciali
-        $valore = str_replace(' ', '', $valore); //Toglie tutti gli spazi
+        $valore = trim($valore); 
+        $valore = stripslashes($valore); 
+        $valore = htmlspecialchars($valore); 
+        $valore = str_replace(' ', '', $valore); 
         if(is_numeric($valore)){
             $valore=(int)$valore;
             $min = $maxmin[strtoupper($parametro)][0];
             $max = $maxmin[strtoupper($parametro)][1];
             if($valore>= $min && $valore <= $max){
-                $inputs[strtolower($parametro)]=$valore;  //se esiste la chiave parametro la sostituisco con valore senno te la crea
+                $inputs[strtolower($parametro)]=$valore; 
             }else{
                 http_response_code(422);
                 echo json_encode(array("message" => "$parametro deve essere compreso tra $min e $max"));   
             }
-                //se valore è compreso tra max e min con un else con messaggio di errore 
         }else{
             http_response_code(422);
     echo json_encode(array("message" => "$parametro non ha un valore valido"));
         }
-        //
-
     }
     return $inputs;
 }

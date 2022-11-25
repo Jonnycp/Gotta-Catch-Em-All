@@ -1,23 +1,23 @@
 <?php
 function readCSV(){
-    //$file='../../data/pokemons.csv';
     $file = fopen('../../data/pokemons.csv', "r"); 
     $lineNumber = 0;
     $array=[];
     while(!feof($file)) {
         $stringa = fgets($file);
         if($lineNumber>0){
-            $row = str_getcsv($stringa);//prende la stringa e la suddivide in un array
-            $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2],$row[3]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12]));
+            $row = str_getcsv($stringa);
+            if(isset($row[0])){
+                $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2],$row[3]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12])); $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2],$row[3]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12])); 
+                 if($row[3]!=""){
+                    array_push($pokemon["tipo"],$row[3]);
+                }
             array_push($array,$pokemon);
-
+            }    
         }
         $lineNumber++;
-        
     }
     fclose($file);
-   
-
     return $array;
 }
 
@@ -60,7 +60,6 @@ function ricercaMaxMin($pokemon){
         $maxspeed=max($colonne["speed"]);
         $minmax["speed"]=[$minspeed,$maxspeed];
     }
-    
     return $minmax;
 }
 
@@ -81,9 +80,7 @@ function normalizerCSV($pokemon){
     $pokemon[$i]["sp_def"]=normalizer($pokemon[$i]["sp_def"],$minmax["sp_def"][0],$minmax["sp_def"][1]);
     $pokemon[$i]["speed"]=normalizer($pokemon[$i]["speed"],$minmax["speed"][0],$minmax["speed"][1]);
     }
-    //array che contine pokemon normalizzato con un ciclo for
     return $pokemon;
-    
 }
 
 ?>
