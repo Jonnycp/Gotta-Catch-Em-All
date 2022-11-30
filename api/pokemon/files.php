@@ -8,7 +8,7 @@ function readCSV(){
         if($lineNumber>0){
             $row = str_getcsv($stringa);
             if(isset($row[0])){
-                $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2],$row[3]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12])); $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2],$row[3]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12])); 
+                $pokemon=array("id"=>(int)$row[0],"nome"=>$row[1],"tipo"=>[$row[2]],"hp"=>(int)$row[5],"atk"=>(int)$row[6],"def"=>(int)$row[7],"sp_atk"=>(int)$row[8],"sp_def"=>(int)$row[9],"speed"=>(int)$row[10],"generazione"=>(int)$row[11],"isLegendary"=>boolval($row[12])); 
                  if($row[3]!=""){
                     array_push($pokemon["tipo"],$row[3]);
                 }

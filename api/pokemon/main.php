@@ -14,8 +14,8 @@ function distEuclideaGenerica($utente,$pokemon){
 $somma=0;
     foreach ($pokemon as $key => $pokemonValue) {
         if($key=="hp"||$key=="atk"||$key=="def"||$key=="sp_def"||$key=="sp_atk"||$key=="speed"){
-            $utenteValue=isset(utente[$key])?utente[$key]:0; 
-            $somma+=pow($utente[$key]-$value,2);
+            $utenteValue=isset($utente[$key])?utente[$key]:0; 
+            $somma+=pow($utenteValue-$pokemonValue,2);
         } 
     }
 return sqrt($somma);
