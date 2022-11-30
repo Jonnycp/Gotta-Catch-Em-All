@@ -64,7 +64,7 @@ function generateCard(pokemon){
    let divImage= document.createElement("div");
    divImage.classList.add("img");
    let image= document.createElement("img");
-   image.src= "/static/img/"+pokemon.id+".jpg";
+   image.src= "/static/img/"+pokemon.id+".png";
    image.alt="Immagine di "+pokemon.nome;
    divImage.append(image);
    containerGlobale.append(divImage);
