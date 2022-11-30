@@ -1,16 +1,16 @@
-form .formGroup {
+form .inputs .formGroup {
     display: flex;
     flex-direction: column;
     gap: 10px;
     flex-basis: 32%;
 }
-form .formGroup label{
+form .inputs .formGroup label{
     color: var(--dark);
     font-family: var(--primaryFont);
     font-size: 15px;
     font-weight: 700;
 }
-form .formGroup input {
+form .inputs .formGroup input {
     color: var(--dark);
     background: var(--light);
     border: 1px solid var(--dark);
@@ -20,27 +20,31 @@ form .formGroup input {
     font-weight: 400;
     padding: 15px;
 }
-form .formGroup input::placeholder{
+form .inputs .formGroup input::placeholder{
     color: var(--placeholder);
     font-family: var(--primaryFont);
     font-size: 15px;
     font-weight: 400;
 }
-form {
+form .inputs{
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
     row-gap: 25px;
-
 }
 
-form .formGroup input.error{
+form .inputs .formGroup input.error{
    color: var( --error);
    border-color: var( --error);
-
 }
 
-form .formGroup input:focus{
+form .inputs .formGroup input:focus{
     outline: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -51,7 +51,7 @@ let inputs=[
      }
 ] 
 
-let form = document.querySelector("form");
+let form = document.querySelector("form .inputs");
 for(let i=0; i<inputs.length; i++){
     
     form.appendChild(generateInput(inputs[i].label, inputs[i].id, inputs[i].range));
