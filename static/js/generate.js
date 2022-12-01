@@ -113,9 +113,32 @@ function generateCard(pokemon){
 
 function generateCards(pokemons){
    let results=document.querySelector(".results");
+   results.replaceChildren();
    for(let i=0; i<pokemons.length;i++){
       results.append(generateCard(pokemons[i]));
    }
+
+}
+
+function generateErrorMessage(icon, title, message){
+
+   let section= document.querySelector("section.results");
+   section.classList.add("error");
+    let divGenerico=  document.createElement("div");
+    divGenerico.classList.add("error");
+    let img =  document.createElement("img");
+    img.src="static/img/icons/"+ icon;
+    let title_= document.createElement("h3");
+    title_.append(document.createTextNode(title))
+    let message_= document.createElement("p");
+    message_.append(document.createTextNode(message));
+    divGenerico.append(img);
+    divGenerico.append(title_);
+    divGenerico.append(message_);
+    section.replaceChildren();
+    section.append(divGenerico);
+    return divGenerico;
+
 
 }
 
