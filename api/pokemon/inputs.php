@@ -5,6 +5,8 @@ function verificaEsistenzaParametri($array){
         $parametri=['HP','ATK','DEF','SP_ATK','SP_DEF','SPEED'];
         if(in_array(strtoupper($parametro),$parametri) ){
             $n+=1;
+            $indexParametro=array_search(strtoupper($parametro),$parametri);
+            unset($parametri[$indexParametro]);
         }else{
             http_response_code(400);
             echo json_encode(array("message" => "Parametro non valido"));
