@@ -49,23 +49,21 @@ function requestPokemon(e){
         fetch("/api/pokemon?"+new URLSearchParams(valori))
         .then(r=>{
             if(r.ok){
-                r=r.json();
-                if(r.length>0){
-                    generateCards(r);
-
-                }else{
-                    generateErrorMessage("emoj.png", "Nessun pokemon simile trovato", "Prova a cambiare i parametri");
-                }
-            }else{
-                generateErrorMessage("Error.png", "Qualcosa non funziona come previsto", r.status+" - Dalila risolverà al più presto (forse)")
-
+                return r.json();
             }
         })
+        .then(data=> {
+            if(data.length>0){
+                generateCards(data);
+            }else{
+                generateErrorMessage("emoj.png", "Nessun pokemon simile trovato", "Prova a cambiare i parametri")M
+            }
+        })   
        
-        .catch(e =>generateErrorMessage("Error.png", "Qualcosa non funziona come previsto", e.message))
+        .catch(e =>generateErrorMessage("Error.png", "Qualcosa non funziona come previsto", "Dalila risolverà al più presto (forse)"))
     }
 }
 
  
-form.addEventListener("submit", requestPokemon)
+document.querySelector("form").addEventListener("submit", requestPokemon);
 
