@@ -58,5 +58,89 @@ for(let i=0; i<inputs.length; i++){
 
 }
 
+function generateCard(pokemon){
+   let containerGlobale=document.createElement("div");
+   containerGlobale.classList.add("card");
+   let divImage= document.createElement("div");
+   divImage.classList.add("img");
+   let image= document.createElement("img");
+   image.src= "/static/img/"+pokemon.id+".png";
+   image.alt="Immagine di "+pokemon.nome;
+   divImage.append(image);
+   containerGlobale.append(divImage);
+   let divStatistic= document.createElement("div");
+   divStatistic.classList.add("stats");
+   let h3=document.createElement("h3");
+   h3.append(document.createTextNode(pokemon.nome));
+   divStatistic.append(h3);
+   let p1= document.createElement("p");
+   p1.append(document.createTextNode("Gen. "+pokemon.generazione));
+   divStatistic.append(p1);
+   let p2= document.createElement("p");
+   let tipi="";
+   for(let i=0; i<pokemon.tipo.length;i++){
+      tipi=tipi+pokemon.tipo[i];
+      console.log(tipi);
+      if(i<pokemon.tipo.length-1){
+          tipi=tipi+", ";
+
+      }
+   }
+   let strongType=document.createElement("strong");
+   strongType.append(document.createTextNode(tipi));
+   p2.append(document.createTextNode("Tipi: "));
+   p2.append(strongType);
+   divStatistic.append(p2);
+   let lista = document.createElement("ul");
+   
+   let parametri=["hp", "atk", "def", "sp_atk", "sp_def", "speed"];
+   let parametri2=["HP", "Atk", "Def", "Sp. Atk", "Sp. Def", "Speed"];
+   for(let i=0; i<parametri.length;i++){
+      let li= document.createElement("li");
+      let strong=document.createElement("strong");
+      strong.append(document.createTextNode(pokemon[parametri[i]]));
+      li.append(document.createTextNode(parametri2[i]+" "));
+      li.append(strong);
+      lista.append(li);
+   }
+   divStatistic.append(lista);
+   containerGlobale.append(divStatistic);
+   return containerGlobale;
+
+
+
+}
+
+function generateCards(pokemons){
+   let results=document.querySelector(".results");
+   results.replaceChildren();
+   for(let i=0; i<pokemons.length;i++){
+      results.append(generateCard(pokemons[i]));
+   }
+
+}
+
+function generateErrorMessage(icon, title, message){
+
+   let section= document.querySelector("section.results");
+   section.classList.add("error");
+    let divGenerico=  document.createElement("div");
+    divGenerico.classList.add("error");
+    let img =  document.createElement("img");
+    img.src="static/img/icons/"+ icon;
+    let title_= document.createElement("h3");
+    title_.append(document.createTextNode(title))
+    let message_= document.createElement("p");
+    message_.append(document.createTextNode(message));
+    divGenerico.append(img);
+    divGenerico.append(title_);
+    divGenerico.append(message_);
+    section.replaceChildren();
+    section.append(divGenerico);
+    return divGenerico;
+
+
+}
+
 
     

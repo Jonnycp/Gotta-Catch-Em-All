@@ -1,0 +1,77 @@
+section.results {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    row-gap: 30px;
+}
+
+section.results .card{
+    background-color: var(--light);
+    border-radius: 15px;
+    display: flex;
+    flex-basis: 32%;
+}
+
+section.results .card .img {
+    background-color: var(--primary);
+    display: flex;
+    flex-basis: 50%;
+    padding-top: 26px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 26px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+section.results .card .stats h3 {
+    font-family: var(--primaryFont);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+section.results .card .stats p {
+    font-family: var(--primaryFont);
+    color: var(--dark);
+    font-size: 12px;
+}
+
+section.results .card .stats {
+    display: flex;
+    margin-left: 22px;
+    gap: 5px;
+    flex-direction: column;
+    margin-right: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-basis: 50%;
+}
+
+
+section.results .card .stats ul { 
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 5px;
+}
+
+
+section.results .card .stats ul li  { 
+    font-family: var(--primaryFont);
+    color: var(--dark);
+    font-size: 12px;
+    flex-basis: 32%;  
+    line-height: 8px; 
+}
+
+section.results .card .img img {
+    width: 100%;
+}

@@ -1,12 +1,17 @@
 @import url("variabiles.css");
 @import url("reset.css");
 @import url("inputs.css");
+@import url("card.css");
+@import url("errors.css");
 @import url("button.css");
 
 div.container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    justify-content: center;
     background: var(--background);
+    display: flex;
+    flex-direction: column;
 }
 main {
     padding-top: 75px;

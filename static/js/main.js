@@ -47,9 +47,22 @@ function requestPokemon(e){
     e.preventDefault();
     if(Object.keys(valori).length>=2){
         fetch("/api/pokemon?"+new URLSearchParams(valori))
-        .then(r=>r.json())
-        .then(r=>generateCard(r))
-        .catch(e =>console.error(e))
+        .then(r=>{
+            if(r.ok){
+                r=r.json();
+                if(r.length>0){
+                    generateCards(r);
+
+                }else{
+                    generateErrorMessage("emoj.png", "Nessun pokemon simile trovato", "Prova a cambiare i parametri");
+                }
+            }else{
+                generateErrorMessage("Error.png", "Qualcosa non funziona come previsto", r.status+" - Dalila risolverà al più presto (forse)")
+
+            }
+        })
+       
+        .catch(e =>generateErrorMessage("Error.png", "Qualcosa non funziona come previsto", e.message))
     }
 }
 
