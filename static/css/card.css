@@ -16,10 +16,15 @@ section.results .card{
 section.results .card .img {
     background-color: var(--primary);
     display: flex;
-    flex-basis: 40%;
-    padding: 26px;
+    flex-basis: 50%;
+    padding-top: 26px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 26px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 section.results .card .stats h3 {
@@ -43,6 +48,7 @@ section.results .card .stats {
     margin-right: 22px;
     margin-top: 20px;
     margin-bottom: 20px;
+    flex-basis: 50%;
 }
 
 
@@ -53,6 +59,8 @@ section.results .card .stats ul {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 100%;
+    margin-top: 5px;
 }
 
 
@@ -60,8 +68,10 @@ section.results .card .stats ul li  {
     font-family: var(--primaryFont);
     color: var(--dark);
     font-size: 12px;
-    flex-basis: 30%;
-    
+    flex-basis: 32%;  
+    line-height: 8px; 
 }
 
-
+section.results .card .img img {
+    width: 100%;
+}
