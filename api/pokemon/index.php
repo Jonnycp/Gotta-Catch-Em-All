@@ -7,10 +7,12 @@ putHeaders("GET");
 if($_SERVER['REQUEST_METHOD']=="GET"){
     if(verificaEsistenzaParametri($_GET)){
         $valori=controlloInput($_GET);
-        $pokemons=readCSV();
-        $pokemonNormalizzati=normalizerCSV($pokemons);
-        $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
-        echo json_encode(estrazione(5,$pokemons,$distanzePokemon));
+        if(count($valori)>=2){
+            $pokemons=readCSV();
+            $pokemonNormalizzati=normalizerCSV($pokemons);
+            $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
+            echo json_encode(estrazione(5,$pokemons,$distanzePokemon));
+        }
     }
 }else{
     http_response_code(405);

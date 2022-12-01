@@ -39,11 +39,13 @@ function controlloInput($array){
                 $inputs[strtolower($parametro)]=$valore; 
             }else{
                 http_response_code(422);
-                echo json_encode(array("message" => "$parametro deve essere compreso tra $min e $max"));   
+                echo json_encode(array("message" => "$parametro deve essere compreso tra $min e $max"));
+                return [];   
             }
         }else{
             http_response_code(422);
-    echo json_encode(array("message" => "$parametro non ha un valore valido"));
+            echo json_encode(array("message" => "$parametro non ha un valore valido"));
+            return [];   
         }
     }
     return $inputs;
