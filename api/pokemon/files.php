@@ -63,7 +63,7 @@ function ricercaMaxMin($pokemon){
     return $minmax;
 }
 
-function normalizer($numero,$min,$max){
+/*function normalizer($numero,$min,$max){
     $numero=($numero-$min)/($max-$min);
     //applica la formula matematica, prende in input un numero (x)
     //normalizer chiamta da normalizercsv
@@ -81,6 +81,6 @@ function normalizerCSV($pokemon){
     $pokemon[$i]["speed"]=normalizer($pokemon[$i]["speed"],$minmax["speed"][0],$minmax["speed"][1]);
     }
     return $pokemon;
-}
+}*/
 
 ?>
