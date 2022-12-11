@@ -56,7 +56,7 @@ function requestPokemon(e){
             if(data.length>0){
                 generateCards(data);
             }else{
-                generateErrorMessage("emoj.png", "Nessun pokemon simile trovato", "Prova a cambiare i parametri")M
+                generateErrorMessage("emoj.png", "Nessun pokemon simile trovato", "Prova a cambiare i parametri");
             }
         })   
        
