@@ -9,8 +9,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         $valori=controlloInput($_GET);
         if(count($valori)>=2){
             $pokemons=readCSV();
-            $pokemonNormalizzati=normalizerCSV($pokemons);
-            $distanzePokemon=distanzePokemon($pokemonNormalizzati,$valori);
+            $distanzePokemon=distanzePokemon($pokemons,$valori);
             echo json_encode(estrazione(5,$pokemons,$distanzePokemon));
         }
     }
