@@ -22,3 +22,9 @@ button[type=submit]:hover {
     transition: 0.3s;
 
 }
+
+@media screen and (max-width:768px){
+    button[type=submit]{
+       min-width: 100%;    
+    }
+}

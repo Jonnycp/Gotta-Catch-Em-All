@@ -75,3 +75,18 @@ section.results .card .stats ul li  {
 section.results .card .img img {
     width: 100%;
 }
+
+
+@media screen and (max-width:1024px){
+    section.results .card{
+        flex-basis: 48%;
+    }
+}
+@media screen and (max-width:768px){
+    section.results .card{
+        flex-basis: 100%;
+    }
+}
+
+
+

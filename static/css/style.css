@@ -37,3 +37,14 @@ main {
     margin-bottom: 30px;
     font-weight: 400;
 }
+
+@media screen and (max-width:768px){
+    .title h1{
+        font-size: 34px;
+    }
+
+    .title h2{
+        font-size: 15px;
+
+    }
+}
