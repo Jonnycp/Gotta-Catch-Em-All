@@ -61,7 +61,7 @@ Il progetto è stato realizzato da:
 
 ## Project Managing
 Si è utilizzato click-up per gestire le varie task assegnate ai developer. Per ogni task si è tracciato il tempo usato per la realizzazione ed assegnato un costo.
-Il costo totale di questo progetto può essere comunicato solo previa comunicazione a <a href="mailto: jonathan-caputo@hotmail.com"/>
+Il costo totale di questo progetto può essere comunicato solo previa comunicazione a <a href="mailto: jonathan-caputo@hotmail.com">jonathan-caputo@hotmail.com</a>
 
 ## Disclamer
 Questo è un progetto scolastico, realizzato tra ottobre e novembre 2022.
